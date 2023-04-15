@@ -12,13 +12,18 @@ class Wisata extends BaseController
     public function __construct()
     {
         session();
+        helper(['form', 'url']);
         $this->wisata = new WisataModel();
     }
 
     public function index()
     {
-        $data['wisata'] = $this->wisata->findAll();
-        return view('admin/wisata/index', $data);
+        if (session()->get('logged_in') == true) {
+            $data['wisata'] = $this->wisata->findAll();
+            return view('admin/wisata/index', $data);
+        } else {
+            return redirect()->to('admin/login');
+        }
     }
 
     public function add()

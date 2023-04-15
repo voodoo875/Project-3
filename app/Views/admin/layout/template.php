@@ -27,10 +27,11 @@
                 <div class="navbar-nav">
                     <a class="nav-link active" aria-current="page" href="<?= base_url('admin'); ?>">Home</a>
                     <a class="nav-link" href="<?= base_url('admin/wisata'); ?>">Wisata</a>
-                    <a class="nav-link" href="<?= base_url('admin/petugas'); ?>">Admin</a>
+                    <a class="nav-link" href="<?= base_url('admin/petugas/index'); ?>">Petugas</a>
                     <a class="nav-link" href="<?= base_url('admin/member'); ?>">Member</a>
                     <a class="nav-link" href="<?= base_url('admin/order'); ?>">Order</a>
                     <a class="nav-link" href="<?= base_url('admin/laporan'); ?>">Laporan Tiket</a>
+                    <a class="nav-link" href="<?= base_url('admin/login/keluar'); ?>">Logout</a>
                 </div>
             </div>
         </div>

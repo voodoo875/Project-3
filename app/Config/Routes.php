@@ -32,6 +32,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->group('admin', function ($routes) {
     $routes->add('/', 'admin\Home::index');
+    $routes->get('home', 'admin\Home::index');
     $routes->get('wisata', 'admin\Wisata::index');
     $routes->add('wisata/add', 'admin\Wisata::add');
     $routes->post('wisata/save', 'admin\Wisata::save');
@@ -41,6 +42,14 @@ $routes->group('admin', function ($routes) {
 
     $routes->get('login', 'admin\Login::index');
     $routes->post('login/cek', 'admin\Login::cek');
+    $routes->get('login/keluar', 'admin\Login::keluar');
+
+    $routes->get('petugas', 'admin\petugas::index');
+    $routes->get('petugas/add', 'admin\petugas::add');
+    $routes->post('petugas/save', 'admin\petugas::save');
+    $routes->get('petugas/edit/(:segment)', 'admin\petugas::edit/$1');
+    $routes->post('petugas/update', 'admin\petugas::update');
+    $routes->get('petugas/delete/(:segment)', 'admin\petugas::delete/$1');
 });
 
 /*

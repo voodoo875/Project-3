@@ -15,17 +15,25 @@
             <div class="col-md-6 mx-auto">
                 <div class="card">
                     <div class="card-body">
-                        <h3 class="text-center">Login Admin</h3>
+                        <?php
+                        if (session()->getFlashdata('error')) { ?>
+                            <div class="alert alert-danger" role="alert">
+                                <?= session()->getFlashdata('error'); ?>
+                            </div>
+                        <?php
+                        }
+                        ?>
+                        <h3 class="text-center">Portal Admin</h3>
                         <form action="<?= base_url('admin/login/cek'); ?>" method="post">
                             <?php $validation = \Config\Services::validation(); ?>
                             <div class="mb-3">
                                 <label>Email</label>
-                                <input type="text" name="email" class="form-control">
+                                <input type="text" name="email" class="form-control" value="<?= set_value('email'); ?>">
                                 <small class="text-danger"><?= $validation->getError('email'); ?></small>
                             </div>
                             <div class="mb-3">
                                 <label>Password</label>
-                                <input type="text" name="password" class="form-control">
+                                <input type="password" name="password" class="form-control" value="<?= set_value('password'); ?>">
                                 <small class="text-danger"><?= $validation->getError('password'); ?></small>
                             </div>
                             <button type="submit" class="btn btn-primary">Login</button>

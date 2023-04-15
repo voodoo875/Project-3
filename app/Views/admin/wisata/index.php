@@ -10,6 +10,7 @@
             <th scope="col">No.</th>
             <th scope="col">Nama Wisata</th>
             <th scope="col">Harga</th>
+            <th scope="col">Foto</th>
             <th scope="col">Proses</th>
         </tr>
     </thead>

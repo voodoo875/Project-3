@@ -2,7 +2,7 @@
 
 <?= $this->section('content'); ?>
 
-<h3 class="text-center">Tambah Wisata</h3>
+<h3 class="text-center">Ubah Wisata</h3>
 
 <form action="<?= base_url('admin/wisata/update'); ?>" method="post" enctype="multipart/form-data">
     <?= csrf_field(); ?>
