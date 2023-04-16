@@ -2,10 +2,20 @@
 
 namespace App\Controllers;
 
+use App\Models\WisataModel;
+
 class Home extends BaseController
 {
+
+    protected $wisata;
+    public function __construct()
+    {
+        $this->wisata = new WisataModel();
+    }
+
     public function index()
     {
-        return view('welcome_message');
+        $data['wisata'] = $this->wisata->limit(3)->findAll();
+        return view('home', $data);
     }
 }
