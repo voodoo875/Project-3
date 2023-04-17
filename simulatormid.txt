@@ -1,0 +1,3 @@
+link simulasi pembayaran midtrans
+dashboard transaksi : https://dashboard.sandbox.midtrans.com/transactions
+bayar : https://simulator.sandbox.midtrans.com/bca/va/index
