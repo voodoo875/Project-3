@@ -29,8 +29,8 @@
                     <a class="nav-link" href="<?= base_url('admin/wisata'); ?>">Wisata</a>
                     <a class="nav-link" href="<?= base_url('admin/petugas/index'); ?>">Petugas</a>
                     <a class="nav-link" href="<?= base_url('admin/member'); ?>">Member</a>
-                    <a class="nav-link" href="<?= base_url('admin/order'); ?>">Order</a>
-                    <a class="nav-link" href="<?= base_url('admin/laporan'); ?>">Laporan Tiket</a>
+                    <a class="nav-link" href="<?= base_url('admin/pesan'); ?>">Order Tiket</a>
+                    <a class="nav-link" href="<?= base_url('admin/pesan/settle'); ?>">Laporan Tiket</a>
                     <a class="nav-link" href="<?= base_url('admin/login/keluar'); ?>">Logout</a>
                 </div>
             </div>
@@ -43,13 +43,15 @@
                 <?= $this->renderSection('content'); ?>
             </div>
             <div class="col-md-4">
-                <h5>List Wisata</h5>
+                <h5>List Wisata Yang Terdaftar</h5>
+                <?php
+                $db = \Config\Database::connect();
+                $builder = $db->table('wisata')->get()->getResult();
+                ?>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                    <li class="list-group-item">A fourth item</li>
-                    <li class="list-group-item">And a fifth one</li>
+                    <?php foreach ($builder as $data) : ?>
+                        <li class="list-group-item"><?= $data->nama_wisata; ?></li>
+                    <?php endforeach; ?>
                 </ul>
             </div>
         </div>

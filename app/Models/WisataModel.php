@@ -10,7 +10,7 @@ class WisataModel extends Model
     protected $primaryKey       = 'id_wisata';
     protected $useAutoIncrement = true;
     protected $returnType       = 'object';
-    protected $useSoftDeletes   = true;
+    protected $useSoftDeletes   = false;
     protected $protectFields    = false;
     protected $allowedFields    = [];
 

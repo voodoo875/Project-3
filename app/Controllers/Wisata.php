@@ -6,6 +6,8 @@ use App\Controllers\BaseController;
 use App\Models\PesanModel;
 use App\Models\WisataModel;
 
+use function PHPUnit\Framework\returnSelf;
+
 class Wisata extends BaseController
 {
     protected $wisata;
@@ -119,5 +121,42 @@ class Wisata extends BaseController
     {
         $data['pesan'] = $this->pesan->join('wisata', 'wisata.id_wisata = pesan.id_wisata')->where(['id' => session()->get('id_users')])->findAll();
         return view('wisata/bayar', $data);
+    }
+
+    public function cek($id)
+    {
+        $token = base64_encode("SB-Mid-server-YBqQm7EU81Mj1zeehWhHeFdC" . ":");
+        $url = "https://api.sandbox.midtrans.com/v2/" . $id . "/status";
+        $header = array(
+            'Accept:application/json',
+            'Content-Type:application/json',
+            'Authorization:Basic ' . $token
+        );
+        $verb = 'GET';
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $verb);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, null);
+        curl_setopt($ch, CURLINFO_HEADER_OUT, true);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $result = curl_exec($ch);
+        $hasil = json_decode($result, true);
+
+        if ($hasil['status_code'] !== '404') {
+            $status = $hasil['transaction_status'];
+            $this->pesan->save(['id_pesan' => $id, 'status' => $status]);
+        }
+
+        return redirect()->to('wisata/bayar');
+
+        // if ($hasil['status_code'] == 200) {
+        //     $status = "Sudah Dibayar";
+        // } else if ($hasil['status_code'] == 201) {
+        //     $status = "Belum Dibayar";
+        // } else if ($hasil['status_code'] == 404) {
+        //     $status = "Tagihan Belum Dibuat";
+        // }
     }
 }

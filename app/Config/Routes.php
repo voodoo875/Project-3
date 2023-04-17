@@ -41,6 +41,9 @@ $routes->get('wisata', 'Wisata::index');
 $routes->get('wisata/pesan/(:segment)', 'Wisata::pesan/$1');
 $routes->post('wisata/proses', 'Wisata::proses');
 $routes->get('wisata/bayar', 'Wisata::bayar');
+$routes->get('wisata/cek/(:segment)', 'Wisata::cek/$1');
+
+$routes->get('history', 'History::index');
 
 $routes->group('admin', function ($routes) {
     $routes->add('/', 'admin\Home::index');
@@ -62,6 +65,11 @@ $routes->group('admin', function ($routes) {
     $routes->get('petugas/edit/(:segment)', 'admin\petugas::edit/$1');
     $routes->post('petugas/update', 'admin\petugas::update');
     $routes->get('petugas/delete/(:segment)', 'admin\petugas::delete/$1');
+
+    $routes->get('member', 'admin\Member::index');
+
+    $routes->get('pesan', 'admin\Pesan::index');
+    $routes->get('pesan/settle', 'admin\Pesan::settle');
 });
 
 /*

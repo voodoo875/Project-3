@@ -27,7 +27,7 @@
                         <small class="text-danger"><?= $validation->getError('dewasa'); ?></small>
                     </div>
                     <div class="mb-3">
-                        <label>Tanggal Kedatangan</label>
+                        <label>Tanggal Keberangkatan</label>
                         <input type="date" name="tanggal" class="form-control">
                         <small class="text-danger"><?= $validation->getError('tanggal'); ?></small>
                     </div>
