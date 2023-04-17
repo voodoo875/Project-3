@@ -37,6 +37,11 @@ $routes->post('/login/save', 'Login::save');
 $routes->post('/login/proses', 'Login::proses');
 $routes->get('login/keluar', 'Login::keluar');
 
+$routes->get('wisata', 'Wisata::index');
+$routes->get('wisata/pesan/(:segment)', 'Wisata::pesan/$1');
+$routes->post('wisata/proses', 'Wisata::proses');
+$routes->get('wisata/bayar', 'Wisata::bayar');
+
 $routes->group('admin', function ($routes) {
     $routes->add('/', 'admin\Home::index');
     $routes->get('home', 'admin\Home::index');

@@ -33,7 +33,7 @@
     </div>
 
     <div class="row">
-        <h3 class="mx-5">Pilihan Wisata</h3>
+        <h3 class="mx-5">Wisata yang tersedia</h3>
         <div class="col d-flex justify-content-evenly flex-wrap">
             <?php foreach ($wisata as $data) : ?>
                 <div class="card mt-4" style="width: 18rem;">
@@ -41,7 +41,6 @@
                     <div class="card-body">
                         <h5 class="card-title text-center"><?= $data->nama_wisata; ?></h5>
                         <p class="card-text text-center"><?= $data->deskripsi; ?></p>
-                        <a href="#" class="btn btn-primary">Beli Tiket</a>
                     </div>
                 </div>
             <?php endforeach ?>

@@ -5,9 +5,11 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\UserModel;
 
+
 class Login extends BaseController
 {
     protected $users;
+
     public function __construct()
     {
         helper(['form', 'url']);
@@ -119,6 +121,7 @@ class Login extends BaseController
                 session()->set([
                     'id_users' => $login->id,
                     'nama' => $login->nama_users,
+                    'email' => $login->email,
                     'logged_in' => true
                 ]);
                 return redirect()->to('');

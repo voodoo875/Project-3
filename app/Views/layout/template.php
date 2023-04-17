@@ -16,14 +16,14 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container">
-            <a class="navbar-brand" href="#">Tick.id</a>
+            <a class="navbar-brand">Tick.id</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <div class="navbar-nav">
                     <a class="nav-link active" aria-current="page" href="<?= base_url(); ?>">Home</a>
-                    <a class="nav-link" href="<?= base_url('wisata'); ?>">List Wisata</a>
+                    <a class="nav-link" href="<?= base_url('wisata/index'); ?>">Pesan Tiket</a>
                     <?php
                     if (session()->get('logged_in') == !true) { ?>
                         <a class="nav-link" href="<?= base_url('login'); ?>">Login</a>
@@ -36,7 +36,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">Profile</a></li>
-                                <li><a class="dropdown-item" href="#">History</a></li>
+                                <li><a class="dropdown-item" href="<?= base_url('wisata/bayar'); ?>">History</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
