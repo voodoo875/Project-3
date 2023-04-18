@@ -28,6 +28,11 @@
                     </div>
                     <div class="mb-3">
                         <label>Tanggal Keberangkatan</label>
+                        <input type="date" name="tanggal_berangkat" class="form-control">
+                        <small class="text-danger"><?= $validation->getError('tanggal_berangkat'); ?></small>
+                    </div>
+                    <div class="mb-3">
+                        <label>Tanggal Kedatangan</label>
                         <input type="date" name="tanggal" class="form-control">
                         <small class="text-danger"><?= $validation->getError('tanggal'); ?></small>
                     </div>

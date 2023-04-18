@@ -15,7 +15,8 @@
                             <th scope="col">Wisata</th>
                             <th scope="col">Tiket Anak-anak</th>
                             <th scope="col">Tiket Dewasa</th>
-                            <th scope="col">Tanggal Keberangkatan</th>
+                            <th scope="col">Keberangkatan</th>
+                            <th scope="col">Kedatangan</th>
                             <th scope="col">Total</th>
                         </tr>
                     </thead>
@@ -29,10 +30,10 @@
                                 <td><?= $data->nama_wisata; ?></td>
                                 <td><?= $data->qty_anak; ?></td>
                                 <td><?= $data->qty_dewasa; ?></td>
+                                <td><?= $data->tgl_berangkat; ?></td>
                                 <td><?= $data->tgl_datang; ?></td>
                                 <td>Rp. <?= number_format($data->total, 0, ',', '.'); ?></td>
                             </tr>
-
                         <?php $no++;
                         endforeach ?>
                     </tbody>

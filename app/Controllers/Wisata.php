@@ -56,10 +56,16 @@ class Wisata extends BaseController
                     'numeric' => 'Gunakan angka!'
                 ],
             ],
+            'tanggal_berangkat' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Tanggal Berangkat Harus dipilih',
+                ],
+            ],
             'tanggal' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Tanggal Harus dipilih',
+                    'required' => 'Tanggal Kedatangan Harus dipilih',
                 ],
             ]
         ];
@@ -72,6 +78,7 @@ class Wisata extends BaseController
 
         $anak = $this->request->getVar('anak');
         $dewasa = $this->request->getVar('dewasa');
+        $tanggal_berangkat = $this->request->getVar('tanggal_berangkat');
         $tanggal = $this->request->getVar('tanggal');
 
         $hAnak = $anak * ($harga / 2);
@@ -108,6 +115,7 @@ class Wisata extends BaseController
             'qty_anak' => $anak,
             'qty_dewasa' => $dewasa,
             'total' => $total,
+            'tgl_berangkat' => $tanggal_berangkat,
             'tgl_datang' => $tanggal,
             'snap' => $snapToken,
         ];
