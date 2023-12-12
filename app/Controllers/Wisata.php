@@ -85,7 +85,7 @@ class Wisata extends BaseController
         $hDewasa =  $dewasa * $harga;
         $total = $hAnak + $hDewasa;
 
-        \Midtrans\Config::$serverKey = 'SB-Mid-server-YBqQm7EU81Mj1zeehWhHeFdC';
+        \Midtrans\Config::$serverKey = 'SB-Mid-server-ueOvkuToTgrO4xd805QWtox0';
         \Midtrans\Config::$isProduction = false;
         \Midtrans\Config::$isSanitized = true;
         \Midtrans\Config::$is3ds = true;
@@ -133,7 +133,7 @@ class Wisata extends BaseController
 
     public function cek($id)
     {
-        $token = base64_encode("SB-Mid-server-YBqQm7EU81Mj1zeehWhHeFdC" . ":");
+        $token = base64_encode("SB-Mid-server-ueOvkuToTgrO4xd805QWtox0" . ":");
         $url = "https://api.sandbox.midtrans.com/v2/" . $id . "/status";
         $header = array(
             'Accept:application/json',
